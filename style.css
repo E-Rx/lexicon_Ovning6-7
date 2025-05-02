@@ -1,0 +1,151 @@
+/* Style pour Le Comte de Monte-Cristo - Film */
+
+body {
+  font-family: 'Georgia', serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0a1930; /* Bleu foncé */
+  color: #e0d6ba; /* Beige/or clair */
+  line-height: 1.6;
+}
+
+/* Container */
+body > * {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header style */
+.main-header {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.movie-title {
+  font-size: 3em;
+  color: #c9b06a;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.movie-poster {
+  max-width: 100%;
+  height: auto;
+  border: 3px solid #c9b06a;
+  box-shadow: 0 0 20px rgba(201, 176, 106, 0.5);
+}
+
+/* Sections style */
+section {
+  margin: 30px auto;
+  text-align: center;
+}
+
+.section-title {
+  color: #c9b06a;
+  border-bottom: 2px solid #c9b06a;
+  padding-bottom: 10px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  color: #c9b06a;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+/* Informations */
+.movie-info {
+  text-align: center;
+}
+
+.movie-subtitle {
+  color: #c9b06a;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.info-item, .detail-item {
+  margin-bottom: 15px;
+}
+
+/* Section vidéo */
+.trailer-video {
+  max-width: 100%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  margin: 10px 0;
+}
+
+/* Links style */
+.links-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.link-item {
+  margin: 5px;
+}
+
+.movie-link {
+  color: #c9b06a;
+  text-decoration: none;
+  padding: 8px 15px;
+  border: 1px solid #c9b06a;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.movie-link:hover {
+  background-color: #c9b06a;
+  color: #0a1930;
+}
+
+/* Footer style */
+.main-footer {
+  height: 50px;
+  background-color: #122747;
+  color: #c9b06a;
+  text-align: center;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.copyright, .contact-info {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-link {
+  color: #e0d6ba;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  body > * {
+      width: 95%;
+  }
+
+  .links-list {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .movie-title {
+      font-size: 2em;
+  }
+
+  .trailer-video {
+      height: 250px;
+  }
+}

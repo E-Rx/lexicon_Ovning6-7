@@ -1,17 +1,21 @@
-
-/* Import Google Fonts  */
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
 
 /* Variables CSS */
 :root {
     --primary-dark: #0a1930;
     --primary-light: #142c52;
+    --primary-darker: #071425;  /* Variable manquante ajoutée */
     --accent-gold: #c9b06a;
+    --accent-gold-bright: #d9c080;  /* Variable manquante ajoutée */
     --text-light: #f0ebdd;
     --text-gold: #e2c87a;
     --spacing-sm: 10px;
     --spacing-md: 20px;
     --spacing-lg: 40px;
+    --shadow-standard: 0 5px 15px rgba(0, 0, 0, 0.3);
+    --shadow-highlight: 0 8px 25px rgba(201, 176, 106, 0.5);
+    color-scheme: dark;
 }
 
 * {
@@ -26,9 +30,10 @@ body {
     color: var(--text-light);
     line-height: 1.7;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Layout with flexbox */
+/* Layout avec flexbox */
 .container {
     width: 85%;
     max-width: 1200px;
@@ -43,12 +48,14 @@ body {
     position: relative;
     background: linear-gradient(rgba(10, 25, 48, 0.8), rgba(10, 25, 48, 0.95));
     background-attachment: fixed;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-standard);
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.1s;
 }
 
 .movie-title {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5 rem;
+    font-size: 3.5rem; /* Correction: suppression de l'espace */
     color: var(--accent-gold);
     margin-bottom: var(--spacing-md);
     text-transform: uppercase;
@@ -63,9 +70,7 @@ body {
     height: auto;
     border: 3px solid var(--accent-gold);
     border-radius: 8px;
-    box-shadow:
-        0 0 20px rgba(201, 176, 106, 0.5),
-        0 10px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--shadow-highlight), var(--shadow-standard);
     transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -81,7 +86,7 @@ body {
 section {
     margin: var(--spacing-lg) auto;
     text-align: center;
-    padding: var(--spacing-lg) 0;
+    padding: var(--spacing-md) 0;
     position: relative;
 }
 
@@ -103,12 +108,13 @@ section {
     margin-bottom: var(--spacing-md);
 }
 
-/* Informations */
-.info-section, .details-section {
+/* Sections de style commun */
+.info-section, .details-section, .links-section {
     background-color: rgba(20, 44, 82, 0.3);
     border-radius: 8px;
     padding: var(--spacing-lg);
     margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-standard);
 }
 
 .movie-info {
@@ -135,25 +141,32 @@ section {
     font-weight: 600;
 }
 
-/* Section vidéo modernisée */
+/* Section vidéo */
 .video-section {
     padding: var(--spacing-lg) 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.trailer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
 
 .trailer-video {
     width: 100%;
     max-width: 560px;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    box-shadow: var(--shadow-standard);
     margin: 0 auto var(--spacing-md);
 }
 
-/* links section */
+/* Section liens */
 .links-section {
-    background-color: rgba(20, 44, 82, 0.3);
-    padding: var(--spacing-lg);
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.9s;
 }
 
 .links-list {
@@ -169,7 +182,6 @@ section {
     margin: var(--spacing-sm);
 }
 
-
 .movie-link {
     color: var(--accent-gold);
     text-decoration: none;
@@ -177,7 +189,7 @@ section {
     border: 1px solid var(--accent-gold);
     border-radius: 2px;
     transition: all 0.3s ease;
-    font-weight: 500;
+    font-weight: 600; /* Plus visible pour l'accessibilité */
     letter-spacing: 1px;
     display: inline-block;
     background-color: rgba(10, 25, 48, 0.8);
@@ -189,6 +201,11 @@ section {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(201, 176, 106, 0.4);
     border-color: var(--accent-gold-bright);
+}
+
+.movie-link:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
 }
 
 /* Footer */
@@ -221,14 +238,20 @@ section {
     text-decoration: underline;
 }
 
-/* Animation subtile au chargement */
+/* Animation au chargement */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-.info-section, .video-section, .details-section, .links-section {
+.info-section {
     animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.details-section {
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.7s;
 }
 
 /* Responsive design */
@@ -242,9 +265,18 @@ section {
     }
 }
 
+@media (min-width: 1200px) {
+    .trailer-container {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
 @media (max-width: 768px) {
-    body > * {
+    .container {
         width: 95%;
+        padding: var(--spacing-sm);
     }
 
     .movie-title {
@@ -261,7 +293,7 @@ section {
         margin-bottom: var(--spacing-sm);
     }
 
-    #video iframe {
+    .trailer-video {
         height: 250px;
     }
 }

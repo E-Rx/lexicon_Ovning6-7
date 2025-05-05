@@ -152,12 +152,16 @@ section {
   gap: 30px;
 }
 
+
 .trailer-video {
   width: 100%;
   max-width: 560px;
+  aspect-ratio: 16 / 9;
+  border: none;
   border-radius: 8px;
   box-shadow: var(--shadow-standard);
-  margin: 0 auto 20px;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Section links */
